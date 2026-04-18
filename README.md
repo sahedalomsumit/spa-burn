@@ -1,18 +1,113 @@
-# React + Vite
+# 🌿 SpaBern - Premium Spa Digital Transformation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI/CD - Deploy to GitHub Pages](https://github.com/sahedalomsumit/spa-burn/actions/workflows/deploy.yml/badge.svg)](https://sahedalomsumit.github.io/spa-burn/)
 
-Currently, two official plugins are available:
+SpaBern is a high-end, minimalist landing page designed for spa and wellness businesses in **Bern, Switzerland**. Built with a focus on "Soft UI Evolution" and a "Sage & Stone" design system, it aims to convert passive website visitors into active bookings through professional storytelling and strategic UX.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- 🌍 **Multilingual Support**: Fully localized in English, German, and Italian using `i18next`.
+- 🎨 **Sage & Stone Design**: A curated, earthy palette with glassmorphism and modern typography for a premium feel.
+- 🎭 **Smooth Animations**: Powered by `Framer Motion` for high-performance scroll reveals and micro-interactions.
+- 📱 **Mobile-First UX**: Seamless browsing experience across all devices, prioritizing mobile booking.
+- 📊 **Lead Engine**: Integrated lead generation form connected to **Google Sheets** via SheetDB API.
+- 🚀 **Automated CI/CD**: Automatic builds and deployment to GitHub Pages using GitHub Actions.
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Category | Technology |
+| :--- | :--- |
+| **Framework** | [React 19](https://react.dev/) |
+| **Bundler** | [Vite 8](https://vitejs.dev/) |
+| **Styling** | Vanilla CSS (Soft UI System) |
+| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Localization** | [i18next](https://www.i18next.com/) |
+| **Storage** | [SheetDB](https://sheetdb.io/) (Google Sheets Integration) |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sahedalomsumit/spa-burn.git
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Set up Environment Variables:**
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_SHEETDB_URL=your_sheetdb_api_endpoint
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+### Building for Production
+
+To generate a production-ready bundle in the `dist` folder:
+```bash
+npm run build
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+spa-burn/
+├── .github/workflows/     # CI/CD Deployment pipeline
+├── public/                # Static assets
+├── src/
+│   ├── assets/            # Images, icons, and blobs
+│   ├── components/        # Reusable UI components
+│   ├── i18n/              # Translation configuration (EN, DE, IT)
+│   ├── App.jsx            # Main application entry
+│   ├── AppDe.jsx          # German version
+│   ├── index.css          # Design system and global styles
+│   └── main.jsx           # React mounting point
+├── vite.config.js         # Vite configuration
+└── package.json           # Scripts and dependencies
+```
+
+---
+
+## 📈 Marketing Strategy
+
+The page follows a strategic conversion funnel:
+1. **The Hook**: Targeted messaging for the Bern wellness market.
+2. **The Problem**: Identifying hidden customer loss on existing websites.
+3. **The Solution**: Highlighting the "Passive Brochure vs. Active Booking Engine" transformation.
+4. **The Offer**: Limited-time 25% discount for local businesses.
+5. **The Proof**: Outcomes including instant trust and mobile independence.
+6. **The Action**: Free Homepage Audit CTA.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  Developed with ❤️ by <a href="https://github.com/sahedalomsumit">Sahed Alom Sumit</a>
+</p>

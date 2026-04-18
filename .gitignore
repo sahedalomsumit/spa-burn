@@ -7,17 +7,66 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist-ssr
-*.local
-.agent/
-.env
+# Dependency directories
+node_modules/
+jspm_packages/
 
-# Editor directories and files
+# Build outputs
+dist/
+dist-ssr/
+*.local
+
+# Tech stack specific
+.next/
+.serverless/
+.shikiji/
+
+# Project-specific
+.env
+.env.production
+.env.development
+.env.local
+.env.*.local
+.agent/
+.gemini/
+
+# IDE & Editor files
 .vscode/*
 !.vscode/extensions.json
-.idea
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.iws
+*.iml
+*.ipr
+.fleet/
+.helix/
+.sublime-project
+.sublime-workspace
+
+# OS-specific files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary and cache
+.cache/
+.npm/
+.eslintcache
+.stylelintcache
+.parcel-cache
+.turbo/
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+
+# Debug outputs
 *.suo
 *.ntvs*
 *.njsproj
