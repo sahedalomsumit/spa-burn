@@ -29,6 +29,7 @@ dist-ssr/
 .env.*.local
 .agent/
 .gemini/
+design-system/
 
 # IDE & Editor files
 .vscode/*
