@@ -1,7 +1,8 @@
 {
-  "name": "spa-switzerland",
+  "name": "spa-grow",
   "private": true,
   "version": "0.0.0",
+  "description": "A premium, high-conversion minimalist landing page for spa and wellness businesses worldwide.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,11 +12,9 @@
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
-    "i18next": "^26.0.6",
     "lucide-react": "^1.8.0",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-i18next": "^17.0.4"
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
