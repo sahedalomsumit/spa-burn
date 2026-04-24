@@ -65,7 +65,7 @@ const Hero = () => (
 
     <Reveal delay={100}>
       <h1 style={{ marginTop: "16px", maxWidth: "900px" }}>
-        Erhalten Sie mehr Spa-Buchungen in Bern —{" "}
+        Erhalten Sie mehr Spa-Buchungen in der Schweiz —{" "}
         <span className="text-italic" style={{ color: "var(--primary)" }}>
           Ohne für Werbung zu bezahlen
         </span>
@@ -81,7 +81,7 @@ const Hero = () => (
           maxWidth: "700px",
         }}
       >
-        I redesign spa websites for businesses in Bern so visitors instantly{" "}
+        I redesign spa websites for businesses in Switzerland so visitors instantly{" "}
         <strong style={{ color: "var(--text)" }}>trust you</strong>, feel
         relaxed, and actually book — instead of leaving.
       </p>
@@ -108,7 +108,7 @@ const Hero = () => (
         </a>
         <div className="offer-pill">
           <Star size={16} style={{ color: "var(--secondary)" }} />
-          <span>25% Rabatt auf Ihr erstes Projekt — begrenzte Plätze in Bern</span>
+          <span>25% Rabatt auf Ihr erstes Projekt — begrenzte Plätze in der Schweiz</span>
         </div>
       </div>
     </Reveal>
@@ -127,7 +127,7 @@ const Hero = () => (
       >
         <img
           src={heroImg}
-          alt="Premium spa interior showcasing a calm, minimalist design aesthetic in Bern"
+          alt="Premium spa interior showcasing a calm, minimalist design aesthetic in Switzerland"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
         {/* Glass overlay card */}
@@ -143,10 +143,10 @@ const Hero = () => (
           }}
         >
           <h3 style={{ fontSize: "1.3rem", marginBottom: "8px" }}>
-            Wir betreuen Bern
+            Wir betreuen die Schweiz
           </h3>
           <p style={{ fontSize: "0.95rem", margin: 0, maxWidth: "none" }}>
-            Spezialisierte Strategie für den Berner Wellness-Markt.
+            Spezialisierte Strategie für den Schweizer Wellness-Markt.
           </p>
         </div>
       </div>
@@ -159,7 +159,7 @@ const Problem = () => (
   <section className="section">
     <Reveal>
       <h2 style={{ maxWidth: "720px" }}>
-        Viele Spa-Websites in Bern sehen "ganz okay" aus…{" "}
+        Viele Spa-Websites in der Schweiz sehen "ganz okay" aus…{" "}
         <span className="text-italic" style={{ color: "var(--secondary)" }}>
           verlieren aber heimlich jeden Tag Kunden.
         </span>
@@ -262,7 +262,7 @@ const Problem = () => (
             maxWidth: "none",
           }}
         >
-          Also gehen die Leute — und wählen ein anderes Spa in Bern.
+          Also gehen die Leute — und wählen ein anderes Spa in der Schweiz.
         </p>
       </div>
     </Reveal>
@@ -301,7 +301,7 @@ const Solution = () => (
               maxWidth: "none",
             }}
           >
-            I help spa and wellness businesses in Bern redesign their website
+            I help spa and wellness businesses in Switzerland redesign their website
             from a passive brochure into an active booking engine.
           </p>
           <a
@@ -423,7 +423,7 @@ const LimitedOffer = () => (
         <h2 style={{ marginTop: "16px", maxWidth: "700px" }}>
           25% Rabatt für Spa-Unternehmen{" "}
           <span className="text-italic" style={{ color: "var(--primary)" }}>
-            in Bern
+            in der Schweiz
           </span>
         </h2>
         <p style={{ fontSize: "1.2rem", marginTop: "24px" }}>
@@ -511,7 +511,7 @@ const Outcomes = () => (
         {
           icon: <Link size={36} />,
           title: "Stärkere lokale Präsenz",
-          text: "Stechen Sie aus den Spa-Unternehmen in Bern mit einer Website hervor, die so aussieht, als würde sie an die Spitze gehören.",
+          text: "Stechen Sie aus den Spa-Unternehmen in der Schweiz mit einer Website hervor, die so aussieht, als würde sie an die Spitze gehören.",
           size: "span 4",
         },
       ].map((item, i) => (
@@ -647,7 +647,7 @@ const FreeAudit = () => (
             className="badge"
             style={{ background: "var(--secondary)", color: "white" }}
           >
-            Begrenzte Plätze in Bern
+            Begrenzte Plätze in der Schweiz
           </div>
           <h3
             style={{
@@ -800,7 +800,7 @@ const AuditForm = () => {
             <input
               type="text"
               name="name"
-              placeholder="e.g. Jakob Berner"
+              placeholder="e.g. Jakob Schweizer"
               value={state.name}
               onBlur={handleBlur}
               onChange={(e) => {
@@ -829,7 +829,7 @@ const AuditForm = () => {
             <input
               type="email"
               name="email"
-              placeholder="e.g. jakob@spa-bern.ch"
+              placeholder="e.g. jakob@spa-schweiz.ch"
               value={state.email}
               onBlur={handleBlur}
               onChange={(e) => {
@@ -858,7 +858,7 @@ const AuditForm = () => {
             <input
               type="text"
               name="url"
-              placeholder="e.g. www.spabern-wellness.ch"
+              placeholder="e.g. www.spa-schweiz-wellness.ch"
               value={state.url}
               onBlur={handleBlur}
               onChange={(e) => {
@@ -1060,7 +1060,7 @@ const VisualPreview = () => (
           color: "var(--secondary)",
         }}
       >
-        Für ausgewählte Unternehmen in Bern
+        Für ausgewählte Unternehmen in der Schweiz
       </div>
       <h2
         style={{
@@ -1082,7 +1082,7 @@ const VisualPreview = () => (
           margin: "24px auto 0",
         }}
       >
-        For selected businesses in Bern, I create a quick homepage redesign
+        For selected businesses in Switzerland, I create a quick homepage redesign
         preview — so you can see the transformation before committing to
         anything.
       </p>
@@ -1274,7 +1274,7 @@ const About = () => (
           />
           <img
             src={profileImg}
-            alt="Sahed Alom Sumit, Webdesigner spezialisiert auf den Berner Markt"
+            alt="Sahed Alom Sumit, Webdesigner spezialisiert auf den Schweizer Markt"
             style={{
               width: "100%",
               height: "100%",
@@ -1368,7 +1368,7 @@ const About = () => (
           }}
         >
           I also understand the business side because of my bachelor's in
-          Business IT. Based in Helsinki, I work with clients in Bern and
+          Business IT. Based in Helsinki, I work with clients in Switzerland and
           worldwide to ensure nothing I build is just pretty—it works toward
           your goals.
         </p>

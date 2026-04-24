@@ -1,8 +1,8 @@
-# 🌿 SpaBern - Premium Spa Digital Transformation
+# 🌿 SpaSwitzerland - Premium Spa Digital Transformation
 
 [![CI/CD - Deploy to GitHub Pages](https://github.com/sahedalomsumit/spa-burn/actions/workflows/deploy.yml/badge.svg)](https://sahedalomsumit.github.io/spa-burn/)
 
-SpaBern is a high-end, minimalist landing page designed for spa and wellness businesses in **Bern, Switzerland**. Built with a focus on "Soft UI Evolution" and a "Sage & Stone" design system, it aims to convert passive website visitors into active bookings through professional storytelling and strategic UX.
+SpaSwitzerland is a high-end, minimalist landing page designed for spa and wellness businesses across **Switzerland**. Built with a focus on "Soft UI Evolution" and a "Sage & Stone" design system, it aims to convert passive website visitors into active bookings through professional storytelling and strategic UX.
 
 ---
 
@@ -77,7 +77,7 @@ npm run build
 ## 📂 Project Structure
 
 ```text
-spa-bern/
+spa-switzerland/
 ├── .github/workflows/     # CI/CD Deployment pipeline
 ├── public/                # Static assets
 ├── src/
@@ -98,7 +98,7 @@ spa-bern/
 
 The page follows a strategic conversion funnel:
 
-1. **The Hook**: Targeted messaging for the Bern wellness market.
+1. **The Hook**: Targeted messaging for the Swiss wellness market.
 2. **The Problem**: Identifying hidden customer loss on existing websites.
 3. **The Solution**: Highlighting the "Passive Brochure vs. Active Booking Engine" transformation.
 4. **The Offer**: Limited-time 25% discount for local businesses.
