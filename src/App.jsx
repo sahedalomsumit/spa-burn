@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   EyeOff,
@@ -21,10 +21,15 @@ import {
   Mail,
   Phone,
   Plus,
+  Menu,
+  X,
 } from "lucide-react";
 import heroImg from "./assets/hero_spa_sage.png";
 import profileImg from "./assets/sahedalomsumit-profile-removebg-preview.png";
 import blobSvg from "./assets/blob.svg";
+import auraBernImg from "./assets/Aura Bern.png";
+import jenniImg from "./assets/jenni-wellbeing.png";
+import logoImg from "./assets/favicon-sahed-alom-sumit.png";
 import "./App.css";
 
 /* ─────────────────── Scroll Reveal Hook ─────────────────── */
@@ -35,7 +40,7 @@ function Reveal({ children, delay = 0, className = "", style = {} }) {
       style={style}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0 }}
       transition={{
         duration: 0.7,
         ease: [0.23, 1, 0.32, 1],
@@ -47,12 +52,186 @@ function Reveal({ children, delay = 0, className = "", style = {} }) {
   );
 }
 
+/* ─────────────────── Header ─────────────────── */
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Active section tracking
+      const sections = navLinks.map((link) => link.href.substring(1));
+      let currentSection = "";
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the top of the section is near the top of the viewport
+          if (rect.top <= 150) {
+            currentSection = sectionId;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "PROBLEM", href: "#problem" },
+    { name: "SOLUTION", href: "#solution" },
+    { name: "OUTCOMES", href: "#outcomes" },
+    { name: "PROCESS", href: "#process" },
+    { name: "PROJECTS", href: "#projects" },
+    { name: "ABOUT", href: "#about" },
+  ];
+
+  return (
+    <header
+      className={`header ${scrolled ? "scrolled" : ""}`}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+      }}
+    >
+      <div
+        style={{
+          padding: "14px 5vw",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          maxWidth: "1400px",
+          margin: "0 auto",
+        }}
+      >
+        {/* Logo */}
+        <a
+          href="#hero"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            textDecoration: "none",
+          }}
+        >
+          <img
+            src={logoImg}
+            alt="SpaGrow Logo"
+            style={{
+              width: "36px",
+              height: "36px",
+              borderRadius: "10px",
+              background: "var(--bg-tint)",
+              padding: "4px",
+            }}
+          />
+          <span
+            style={{
+              fontFamily: "var(--serif)",
+              fontSize: "1.4rem",
+              fontWeight: 700,
+              color: "var(--primary)",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            SpaGrow
+          </span>
+        </a>
+
+        {/* Desktop Menu */}
+        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+          <nav className="desktop-nav" style={{ display: "flex", gap: "32px" }}>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`nav-link ${
+                  activeSection === link.href.substring(1) ? "active" : ""
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="mobile-toggle"
+            style={{
+              display: "none",
+              background: "none",
+              border: "none",
+              color: "var(--primary)",
+              cursor: "pointer",
+              padding: "8px",
+            }}
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{
+              overflow: "hidden",
+              background: "var(--bg)",
+              borderBottom: "1px solid var(--stone)",
+            }}
+            className="mobile-nav"
+          >
+            <div
+              style={{
+                padding: "20px 5vw 40px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+              }}
+            >
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`nav-link ${
+                    activeSection === link.href.substring(1) ? "active" : ""
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                  style={{ fontSize: "1.2rem", width: "fit-content" }}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+};
+
 /* ─────────────────── Hero ─────────────────── */
 const Hero = () => (
   <section
+    id="hero"
     className="section"
     style={{
-      paddingTop: "100px",
+      paddingTop: "140px",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
@@ -156,7 +335,7 @@ const Hero = () => (
 
 /* ─────────────────── Problem ─────────────────── */
 const Problem = () => (
-  <section className="section">
+  <section id="problem" className="section">
     <Reveal>
       <h2 style={{ maxWidth: "720px" }}>
         Many spa websites look "okay"…{" "}
@@ -272,6 +451,7 @@ const Problem = () => (
 /* ─────────────────── Solution ─────────────────── */
 const Solution = () => (
   <section
+    id="solution"
     className="section"
     style={{
       background: "var(--primary)",
@@ -466,7 +646,7 @@ const LimitedOffer = () => (
 
 /* ─────────────────── Outcomes ─────────────────── */
 const Outcomes = () => (
-  <section className="section">
+  <section id="outcomes" className="section">
     <Reveal>
       <div style={{ textAlign: "center", marginBottom: "64px" }}>
         <h2>
@@ -1239,6 +1419,128 @@ const VisualPreview = () => (
   </section>
 );
 
+/* ─────────────────── Recent Projects ─────────────────── */
+const RecentProjects = () => (
+  <section className="section" id="projects">
+    <Reveal>
+      <div style={{ textAlign: "center", marginBottom: "64px" }}>
+        <div className="badge">Portfolio</div>
+        <h2 style={{ marginTop: "16px" }}>
+          Recent{" "}
+          <span className="text-italic" style={{ color: "var(--primary)" }}>
+            Success Stories.
+          </span>
+        </h2>
+        <p style={{ margin: "16px auto 0", textAlign: "center" }}>
+          Websites that don't just look calm — they drive real bookings.
+        </p>
+      </div>
+    </Reveal>
+
+    <div className="grid-bento">
+      {[
+        {
+          title: "Aura Bern",
+          category: "Medical Spa • Bern, Switzerland",
+          image: auraBernImg,
+          link: "https://sahedalomsumit.github.io/aurabern.ch/",
+          description:
+            "A premium medical spa website focusing on high-end aesthetics and conversion-driven design.",
+        },
+        {
+          title: "Jenni Wellbeing",
+          category: "Wellness Studio • Switzerland",
+          image: jenniImg,
+          link: "https://sahedalomsumit.github.io/jenni-wellbeing.ch/",
+          description:
+            "Redesigning the online presence for a holistic wellbeing studio to reflect calm and professionality.",
+        },
+      ].map((project, i) => (
+        <Reveal key={i} delay={i * 100} style={{ gridColumn: "span 6" }}>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bento-card"
+            style={{
+              padding: 0,
+              overflow: "hidden",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              textDecoration: "none",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                height: "340px",
+              }}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="project-image"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+              <div
+                className="glass"
+                style={{
+                  position: "absolute",
+                  top: "20px",
+                  right: "20px",
+                  padding: "6px 12px",
+                  borderRadius: "100px",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "var(--primary)",
+                }}
+              >
+                View Live Site{" "}
+                <ArrowRight
+                  size={14}
+                  style={{ verticalAlign: "middle", marginLeft: "4px" }}
+                />
+              </div>
+            </div>
+            <div style={{ padding: "32px" }}>
+              <div
+                style={{
+                  fontSize: "0.85rem",
+                  color: "var(--secondary)",
+                  fontWeight: 700,
+                  marginBottom: "8px",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                {project.category}
+              </div>
+              <h3 style={{ marginBottom: "12px", fontSize: "1.6rem" }}>
+                {project.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: "1rem",
+                  color: "var(--text-muted)",
+                  maxWidth: "none",
+                }}
+              >
+                {project.description}
+              </p>
+            </div>
+          </a>
+        </Reveal>
+      ))}
+    </div>
+  </section>
+);
+
 /* ─────────────────── About ─────────────────── */
 const About = () => (
   <section id="about" className="section">
@@ -1473,8 +1775,16 @@ const FinalCTA = () => (
 
 /* ─────────────────── App ─────────────────── */
 export default function App() {
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <Header />
       <Hero />
       <Problem />
       <Solution />
@@ -1483,6 +1793,7 @@ export default function App() {
       <FreeAudit />
       <Process />
       <VisualPreview />
+      <RecentProjects />
       <About />
       <FinalCTA />
 
