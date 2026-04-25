@@ -105,8 +105,18 @@ const Header = () => {
     if (element) {
       // Small timeout to allow the menu to start closing and body overflow to reset
       setTimeout(() => {
-        element.scrollIntoView({ behavior: "smooth" });
-      }, 50);
+        // Get individual scroll-margin-top from CSS to allow section-specific offsets
+        const computedStyle = window.getComputedStyle(element);
+        const scrollMarginTop = parseInt(computedStyle.scrollMarginTop) || 70;
+        
+        const rect = element.getBoundingClientRect();
+        const scrollPosition = rect.top + window.pageYOffset - scrollMarginTop;
+
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: "smooth"
+        });
+      }, 100);
     }
   };
 
@@ -779,7 +789,7 @@ const Outcomes = () => (
 
 /* ─────────────────── Free Audit Section ─────────────────── */
 const FreeAudit = () => (
-  <section id="audit" className="section" style={{ paddingBottom: "0" }}>
+  <section id="audit" className="section">
     <Reveal>
       <div
         style={{
@@ -1283,6 +1293,7 @@ const VisualPreview = () => (
       borderRadius: "60px",
       color: "white",
       textAlign: "center",
+      overflow: "hidden", // Added to ensure rounded corners work with internal content
     }}
   >
     <Reveal>

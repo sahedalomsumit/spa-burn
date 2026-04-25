@@ -149,14 +149,48 @@ strong {
 /* ══════════════ Layout ══════════════ */
 
 .section {
-  padding: 120px 5vw;
+  padding: 100px 5vw;
   max-width: 1400px;
   margin: 0 auto;
-  scroll-margin-top: 100px;
+  scroll-margin-top: 80px;
 }
 
-#problem, #outcomes, #about, #audit {
-  padding-top: 60px;
+/* ── Section Specific Adjustments ── */
+#problem {
+  padding-top: 80px;
+  scroll-margin-top: 80px;
+}
+
+#solution {
+  padding-top: 100px;
+  margin-top: 40px;
+  scroll-margin-top: 100px; /* Larger offset for rounded section */
+}
+
+#outcomes {
+  padding-top: 80px;
+  scroll-margin-top: 80px;
+}
+
+#process {
+  padding-top: 80px;
+  scroll-margin-top: 80px;
+}
+
+#projects {
+  padding-top: 140px;
+  margin-top: 80px;
+  scroll-margin-top: 60px; /* Smaller offset to scroll further down */
+}
+
+#about {
+  padding-top: 80px;
+  scroll-margin-top: 80px;
+}
+
+#audit {
+  padding-top: 80px;
+  scroll-margin-top: 80px;
 }
 
 .grid-bento {
