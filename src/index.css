@@ -556,9 +556,10 @@ strong {
 /* ── Floating Button Mobile ── */
 @media (max-width: 600px) {
   .floating-audit-badge {
-    bottom: 24px !important;
-    right: 24px !important;
-    scale: 0.9;
+    bottom: 8px !important;
+    right: 0px !important;
+    left: auto !important;
+    scale: 0.85;
   }
 }
 
@@ -681,7 +682,7 @@ strong {
 }
 
 .mobile-nav {
-  display: none;
+  /* Let framer-motion handle visibility */
 }
 
 @media (max-width: 1024px) {

@@ -212,7 +212,7 @@ const Header = () => {
                     activeSection === link.href.substring(1) ? "active" : ""
                   }`}
                   onClick={() => setIsOpen(false)}
-                  style={{ fontSize: "1.2rem", width: "fit-content" }}
+                  style={{ fontSize: "1.2rem", width: "100%", display: "block" }}
                 >
                   {link.name}
                 </a>
